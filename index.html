@@ -4,15 +4,21 @@
     <link rel="stylesheet" type="text/css" href="./search.css">
   </head>
   <body>
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#news">News</a></li>
-      <li><a href="#about">About</a></li>
-    </ul>
-    <input placeholder="Search for a name" id="searchbox" type="text">
-    <div id="help">Type something</div>
-    <div id="no-results" style="display:none;">No matches</div>
-    <div id="dropdown" style="display:none;"></div>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </nav>
+    <div class="auto-complete">
+      <input placeholder="Search for a name" id="search-input" type="text">
+      <div id="search">
+        <div id="search-help">Type something</div>
+        <div id="search-no-results" style="display:none;">No matches</div>
+        <div id="search-results" style="display:none;"></div>
+      </div>
+    </div>
     <script src="./frontend.js" type="application/javascript">
     </script>
   </body>
