@@ -10,10 +10,12 @@ searchBox.oninput = function() {
   console.log(searchedWord);
   search(searchedWord);
 }
+
 function back() {
   var value = document.getElementById("dropdown").value;
   document.getElementById("dropdown").value = value.substr(0, value.length - 1);
 }
+
 function search(delNavn) {
   var dropsearch = [];
   console.log("Soker opp", delNavn)
@@ -22,7 +24,8 @@ function search(delNavn) {
     if (navn.startsWith(delNavn)) {
       console.log("Matcher:" , delNavn, navn)
       
-      /*Legger til navnene til dropsearch array--->*/   dropsearch.push(navn)
+      /*Legger til navnene til dropsearch array--->*/ 
+      dropsearch.push(navn)
       document.getElementById("dropdown").innerHTML = dropsearch;
     }else{
       console.log("Ingen treff:", navn)
