@@ -49,12 +49,14 @@ function search(searchWord, index,
     } else if (results.length > 0) {
       removeChildren(searchResultsElem); //remove the children previous results
       var searchResultsListElem = createSearchResultsElem(results); //create search results
-      searchResultsElem.appendChild(searchResultsListElem); //append them to root
+      searchResultsElem.appendChild(searchResultsListElem); //append them to searchResultsListElem
 
       hideElem(searchNoResultsElem);
       showElem(searchResultsElem);
     } else {
-      //_It is consired good practice
+      //_It is consired good practice to always cover ALL cases of a branch/if statement.
+      //_  This leads to defensive programming (https://en.wikipedia.org/wiki/Defensive_programming)
+      //_  and easier-to-discover bugs...
       console.error('Something unexpected happend. Results length ' + //notice + is trailing, this is a normal convention
 		    'is not equal or higher than 0', results.length)
     }
