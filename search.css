@@ -1,22 +1,19 @@
 input {
-    width: 20%;
-    margin: auto;
-    padding: 10px;
-    align-content: center;
-    align-items: center;
-    border-color: black;
-    background-color: white;
-    box-shadow: 20px;
+  width: 20%;
+  margin: auto;
+  padding: 10px;
+  align-content: center;
+  align-items: center;
+  border-color: black;
+  background-color: white;
+  box-shadow: 20px;
 }
 
 html {
-    background-color: lightgray;
-    font-family: sans-serif;}
+  background-color: lightgray;
+  font-family: sans-serif;}
 
 nav {
-    display: block;
-    background-color: white;
-}
-
-#dropdown{
+  display: block;
+  background-color: white;
 }
