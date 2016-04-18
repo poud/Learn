@@ -26,12 +26,12 @@ searchInputElem.oninput = function(event) { //we override the default oninput im
 }
 
 //_This is 'hoisted' to top, if this was not JavaScript
-//_  we would have to define these function BEFORE we use them.
+//_  we would have to define these functions BEFORE we use them.
 
 //_It is easier to debug and test functions that do not affect
 //_  variables or state outside of its scope (scope is the part
 //_  of the code defined by the { }). Therefore, we declare
-//_  them in the parameters (searchWord, root, index)
+//_  them in the parameters.
 function search(searchWord, index,
 		searchNoResultsElem, searchResultsElem) {
   //_It is easier to understand this code, because we
