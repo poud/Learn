@@ -58,7 +58,9 @@ nav > ul > li > a {
   padding-left: 10px;
   padding-right: 10px;
   width: 100%;
+}
 
+#search > #search-help {
   color: #A9A9A9;
 }
 
