@@ -1,22 +1,26 @@
 body {
   margin: 0;
-  background-color: lightgray;
+  background-color: white;
   font-family: sans-serif;
 }
 
 nav {
   display: block;
-  background-color: white;
+  background-color: lightgray;
 }
 
 nav > ul {
+  margin: 0;
   padding: 1em;
+  padding-bottom: 2em;
   font-size: 1em;
   list-style: none;
 }
 
 nav > ul > li {
   display: inline-block;
+  float: right;
+  margin-left: 1em;
 }
 
 nav > ul > li > a {
@@ -25,6 +29,7 @@ nav > ul > li > a {
 }
 
 .auto-complete {
+  margin-top: 2em;
   margin-left: auto;
   margin-right: auto;
   width: 20%;
