@@ -45,33 +45,36 @@ nav > ul > li > a {
 }
 
 #search {
-  width: 100%;
+  width: calc(100% + 2px);
 
+  font-size: 1.5em;
   background-color: white;
+}
+#search > #search-no-results {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+
   border-right: 1px solid #A9A9A9;
   border-left: 1px solid #A9A9A9;
   border-bottom: 1px solid #A9A9A9;
 }
-#search > #search-no-results,#search-help {
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
-  width: 100%;
-}
 
-#search > #search-help {
-  color: #A9A9A9;
-}
 
 #search-results > ul {
   list-style: none;
   padding: 0;
   margin: 0;
+
+  border-right: 1px solid #A9A9A9;
+  border-left: 1px solid #A9A9A9;
+  border-bottom: 1px solid #A9A9A9;
 }
 
 #search-results > ul > li {
-  font-size: 1.5em;
+  cursor: pointer;
+
   padding-left: 10px;
   padding-right: 10px;
 

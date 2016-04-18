@@ -19,11 +19,10 @@ var nameIndex = ['fredrik johnsen', 'emil', 'ingrid johnsen', 'fredrik ekholdt']
 var searchInputElem = document.getElementById('search-input');
 var searchResultsElem = document.getElementById('search-results');
 var searchNoResultsElem = document.getElementById('search-no-results');
-var searchHelpElem = document.getElementById('search-help');
 
 searchInputElem.oninput = function(event) { //we override the default oninput implementation
   var searchedWord = event.target.value;
-  search(searchedWord, nameIndex, searchHelpElem, searchNoResultsElem, searchResultsElem);
+  search(searchedWord, nameIndex, searchNoResultsElem, searchResultsElem);
 }
 
 //_This is 'hoisted' to top, if this was not JavaScript
@@ -33,20 +32,18 @@ searchInputElem.oninput = function(event) { //we override the default oninput im
 //_  variables or state outside of its scope (scope is the part
 //_  of the code defined by the { }). Therefore, we declare
 //_  them in the parameters (searchWord, root, index)
-function search(searchWord, index, searchHelpElem,
+function search(searchWord, index,
 		searchNoResultsElem, searchResultsElem) {
   //_It is easier to understand this code, because we
   //_ say what we do (logically). Easier code == less bugs :)
   //_ Another way to look at it: we define things in the order,
   //_ which it is used. This is called literate programming: https://en.wikipedia.org/wiki/Literate_programming
   if (!searchWord) {
-    showElem(searchHelpElem);
     hideElem(searchNoResultsElem);
     hideElem(searchResultsElem);
   } else {
     var results = lookupIndex(searchWord, index); //lookup names in index
     if (results.length === 0) { //notice the ===, this is JavaScript to make sure the type is the same on both sides of the === (different from ==)
-      hideElem(searchHelpElem);
       showElem(searchNoResultsElem);
       hideElem(searchResultsElem);
     } else if (results.length > 0) {
@@ -54,7 +51,6 @@ function search(searchWord, index, searchHelpElem,
       var searchResultsListElem = createSearchResultsElem(results); //create search results
       searchResultsElem.appendChild(searchResultsListElem); //append them to root
 
-      hideElem(searchHelpElem);
       hideElem(searchNoResultsElem);
       showElem(searchResultsElem);
     } else {
