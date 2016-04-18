@@ -62,10 +62,14 @@ nav > ul > li > a {
 }
 
 #search-results > ul > li {
+  font-size: 1.5em;
   padding-left: 10px;
   padding-right: 10px;
+
+  color: #525252;
 }
 
 #search-results > ul > li:hover {
-  background-color: #ccc;
+  background-color: #F1F1F1;
+  color: #000;
 }
