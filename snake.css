@@ -1,0 +1,22 @@
+body {
+  background-color: black;
+}
+
+.Board {
+  border-collapse: collapse;
+  border-spacing: 0px;
+}
+
+.Board-Cell {
+  width: 10px;
+  height: 10px;
+  background-color: white;
+}
+
+.Board-Snake-Body {
+  background-color: lightgreen;
+}
+
+.Board-Snake-Head {
+  background-color: green;
+}
