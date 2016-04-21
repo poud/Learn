@@ -32,7 +32,7 @@ var state = [
   [ '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '']
 ];
 
-//Usually it is better to wait until html is loaded before calling JavaScript.
+//Usually it is better to wait until html is loaded before calling JavaScript 'stuff'.
 //We know it is loaded when the DOMContentLoaded EVENT is triggered
 document.addEventListener('DOMContentLoaded', function() {
   render(state, rootElem);
@@ -41,17 +41,22 @@ document.addEventListener('DOMContentLoaded', function() {
 //Remember these functions are hoisted (google it ;) ) - I will ask what it means ;)
 function render(state, rootElem) {
   var rows = state.length;
-  var tableElem = document.createElement('table');
-  tableElem.setAttribute('class', 'Board')
+  var currentTableElem = tableElem();
   for (row = 0; row < rows; row++) {
     var columns = state[row].length;
-    tableElem.appendChild(rowElem()); //just add another row, don't need anything else
+    currentTableElem.appendChild(rowElem()); //just add another row, don't need anything else
     for (column = 0; column < columns; column++) {
-      tableElem.appendChild(cellElem(state[row][column]));
+      currentTableElem.appendChild(cellElem(state[row][column]));
     }
   }
   clear(rootElem);
-  rootElem.appendChild(tableElem);
+  rootElem.appendChild(currentTableElem);
+}
+
+function tableElem() {
+  var tableElem = document.createElement('table');
+  tableElem.setAttribute('class', 'Board');
+  return tableElem;
 }
 
 function rowElem() {
