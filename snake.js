@@ -99,9 +99,24 @@ document.addEventListener('keydown', function(ev) {
       ev.preventDefault(); //_What does this do (google it) and why do we use it?
       break; //_Send me a mail and tell me what break; means here and why I have it.
     }
-    //_!!!!                                     !!!_//
-    //_!!!! YOU need to implement the rest here _!!!//
-    //_!!!!                                     !!!_//
+      case 39: {
+          console.log('Right');
+          direction = 'R';
+          ev.preventDefault();
+          break;
+      }
+      case 38: {
+          console.log('Up');
+          direction = 'U';
+          ev.preventDefault();
+          break;
+      }  
+       case 40: {
+          console.log('Down');
+          direction = 'D';
+          ev.preventDefault();
+          break;
+      }   
     default: { //_what does this do? And why is it empty (not even a break)(that could be a hint)?
       //Do nothing
     }
@@ -125,9 +140,18 @@ function updateState(state) {
             nextColumn -= 1; //_This is a new syntax for you - are you able to guess what it does?
             break;
           }
-          //_!!!!                                     !!!_//
-          //_!!!! YOU need to implement the rest here _!!!//
-          //_!!!!                                     !!!_//
+            case 'R': {
+                nextColumn += 1;
+                break;
+            }
+            case 'U': {
+                nextRow -= 1;
+                break;
+            }
+             case 'D': {
+                nextRow += 1;
+                break;  
+             }
           default: {
             console.warn('Unknown direction!', direction);
           }
@@ -136,7 +160,7 @@ function updateState(state) {
             nextColumn > -1 && nextColumn < columns) {
           nextState[nextRow][nextColumn] = 'H';
         } else {
-          alert('G4M3 OOVER NOOB!!!');
+          confirm('You are the noob!!!');
           nextState[rows / 2][columns / 2] = 'H';
         }
       }
