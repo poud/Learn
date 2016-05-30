@@ -1,8 +1,7 @@
 //_ Hi again, Emil!
 //_ Make sure you send me a mail when you read this so I know you read the code ;)
 
-//root elem
-var rootElem = document.getElementById('snake');
+
 
 //_ This is the state representing, below you'll find some simple functions that can be
 //_ used to display the state. An empty String ( '') is used when nothing is there.
@@ -10,7 +9,8 @@ var rootElem = document.getElementById('snake');
 //_ First we'll figure out how the snake moves and rules and so on.
 //_ Then we'll figure out how to represent the state better
 var state = [
-  [ '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  ''],
+  [ '',  '',  '',  '',  '',  '',  '',  'S',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  ''],
+  [ '',  '',  '',  '',  'S',  'S',  'S',  'S',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  ''],
   [ '',  '',  '',  '',  'S',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  ''],
   [ '',  '',  '',  '',  'S',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  ''],
   [ '',  '',  '',  '',  'H',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  ''],
@@ -35,6 +35,8 @@ var state = [
 //_Usually it is better to wait until html is loaded before calling JavaScript 'stuff'.
 //_We know it is loaded when the DOMContentLoaded EVENT is triggered
 document.addEventListener('DOMContentLoaded', function() {
+  //root elem
+  var rootElem = document.getElementById('snake');
   render(state, rootElem);
 })
 
