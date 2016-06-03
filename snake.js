@@ -1,8 +1,7 @@
 //_ Hi again, Emil!
 //_ Make sure you send me a mail when you read this so I know you read the code ;)
 
-//root elem
-var rootElem = document.getElementById('snake');
+
 
 //_ This is the state representing, below you'll find some simple functions that can be
 //_ used to display the state. An empty String ( '') is used when nothing is there.
