@@ -9,15 +9,7 @@
 //_ First we'll figure out how the snake moves and rules and so on.
 //_ Then we'll figure out how to represent the state better
 var state = [
-<<<<<<< HEAD
-  [ '',  '',  '',  '',  '',  '',  '',  'S',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  ''],
-  [ '',  '',  '',  '',  'S',  'S',  'S',  'S',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  ''],
-  [ '',  '',  '',  '',  'S',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  ''],
-  [ '',  '',  '',  '',  'S',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  ''],
-  [ '',  '',  '',  '',  'H',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  ''],
-=======
   [ '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  ''],
->>>>>>> origin/master
   [ '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  ''],
   [ '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  ''],
   [ '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  ''],
@@ -43,18 +35,11 @@ var direction = 'L';
 //_Usually it is better to wait until html is loaded before calling JavaScript 'stuff'.
 //_We know it is loaded when the DOMContentLoaded EVENT is triggered
 document.addEventListener('DOMContentLoaded', function() {
-<<<<<<< HEAD
-  //root elem
-  var rootElem = document.getElementById('snake');
-  render(state, rootElem);
-})
-=======
   //Send me a mail when you see this and tell me how many times "step" will be called (it is a trick question)
   setInterval(step, 200); //_What is going on here, what and where is "step" defined?
 });
 
 /* VIEW */
->>>>>>> origin/master
 
 //_Remember these functions are hoisted (google it ;) ) - I will ask what it means ;)
 function render(state, rootElem) {
