@@ -1,0 +1,26 @@
+{
+  'globals': {
+    document: true,
+    setInterval: true,
+    setTimeout: true,
+    console: true,
+    confirm: true,
+  },
+  'rules': {
+    'no-extra-bind': 2,
+    quotes: [2, 'single'],
+    'default-case': [2, { commentPattern: '^no default$' }],
+    eqeqeq: [2, 'allow-null'],
+    curly: [2, 'multi-line'],
+    'dot-location': 0,
+    'no-div-regex': 0,
+    'no-eq-null': 0,
+    'consistent-return': 2,
+    'no-unused-vars': [2, { vars: 'local', args: 'after-used' }],
+    indent: [2, 2, {'SwitchCase': 1}],
+    'no-undef': 2,
+    semi: 1,
+    'no-shadow': 0,
+    'arrow-body-style': 0,
+  }
+}
