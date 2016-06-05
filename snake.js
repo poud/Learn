@@ -1,7 +1,8 @@
 //_ Hi again, Emil!
 //_ Make sure you send me a mail when you read this so I know you read the code ;)
 
-
+//root elem
+var rootElem = document.getElementById('snake');
 
 //_ This is the state representing, below you'll find some simple functions that can be
 //_ used to display the state. An empty String ( '') is used when nothing is there.
@@ -98,24 +99,24 @@ document.addEventListener('keydown', function(ev) {
       ev.preventDefault(); //_What does this do (google it) and why do we use it?
       break; //_Send me a mail and tell me what break; means here and why I have it.
     }
-      case 39: {
-          console.log('Right');
-          direction = 'R';
-          ev.preventDefault();
-          break;
-      }
-      case 38: {
-          console.log('Up');
-          direction = 'U';
-          ev.preventDefault();
-          break;
-      }  
-       case 40: {
-          console.log('Down');
-          direction = 'D';
-          ev.preventDefault();
-          break;
-      }   
+    case 39: {
+      console.log('Right');
+      direction = 'R';
+      ev.preventDefault();
+      break;
+    }
+    case 38: {
+      console.log('Up');
+      direction = 'U';
+      ev.preventDefault();
+      break;
+    }
+    case 40: {
+      console.log('Down');
+      direction = 'D';
+      ev.preventDefault();
+      break;
+    }
     default: { //_what does this do? And why is it empty (not even a break)(that could be a hint)?
       //Do nothing
     }
@@ -139,18 +140,18 @@ function updateState(state) {
             nextColumn -= 1; //_This is a new syntax for you - are you able to guess what it does?
             break;
           }
-            case 'R': {
-                nextColumn += 1;
-                break;
-            }
-            case 'U': {
-                nextRow -= 1;
-                break;
-            }
-             case 'D': {
-                nextRow += 1;
-                break;  
-             }
+          case 'R': {
+            nextColumn += 1;
+            break;
+          }
+          case 'U': {
+            nextRow -= 1;
+            break;
+          }
+          case 'D': {
+            nextRow += 1;
+            break;
+          }
           default: {
             console.warn('Unknown direction!', direction);
           }
