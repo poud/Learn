@@ -2,7 +2,9 @@
   'globals': {
     document: true,
     setInterval: true,
+    setTimeout: true,
     console: true,
+    confirm: true,
   },
   'rules': {
     'no-extra-bind': 2,

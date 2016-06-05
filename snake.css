@@ -13,10 +13,14 @@ body {
   background-color: white;
 }
 
-.Board-Snake-Body {
+.Board-Snake-Tail {
   background-color: lightgreen;
 }
 
 .Board-Snake-Head {
   background-color: green;
+}
+
+.Board-Token {
+  background-color: orange;
 }
