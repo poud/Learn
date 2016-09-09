@@ -2,6 +2,14 @@ body {
   background-color: black;
 }
 
+#snake {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+}
+
 .Board {
   border-collapse: collapse;
   border-spacing: 0px;

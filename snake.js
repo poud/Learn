@@ -14,11 +14,13 @@ var rootElem = document.getElementById('snake');
 //_Emil: this is the size of the "world". Earlier we had rows and columns, now we have x and y.
 //_Read the code and figure out if what x is what we called row or column earlier.
 var direction = 'L';
-var worldSize = { x: 20, y: 20 };
+var worldSize = { x: 50, y: 50 };
 var initPosition = { x: parseInt(worldSize.x/2), y: parseInt(worldSize.y/2) }; //_Emil: why do we parseInt here?
 var positions = [initPosition];
 var initTokens = [{ x: 8, y: 10 }];
 var tokens = initTokens;
+
+console.log("Starting...")
 
 function step() {
   var state = updateState(direction, positions, tokens);
@@ -180,7 +182,6 @@ function updateState(direction, positions, tokens) {
       tokens: nextTokens,
     };
   } else {
-    confirm('Game Over boy!');
     console.log("Dead");
     return {
       positions: [initPosition],
@@ -229,7 +230,7 @@ function randomInt(min, max) {
 function contains(position, positions) {
   for (var positionIndex = 0; positionIndex < positions.length; positionIndex++) {
     var currentPosition = positions[positionIndex];
-    console.log(position, currentPosition);
+    //console.log(position, currentPosition);
     if (position.x === currentPosition.x &&
         position.y === currentPosition.y) {
       return true;
