@@ -164,7 +164,7 @@ function updateState(direction, positions, tokens) {
   //_If I were you I would remove all the code below and try to code it up myself to understand.
   var tailPositions = positions.slice(0, positions.length - 1);
   var nextPositions = [{ x: nextX, y: nextY }].concat(tailPositions);
-  
+
   if (!crash(worldSize, positions, nextPositions)) {
     //_Emil: can you guess why I do a slice here? If not, send me a mail saying: 'no I do not understand' (which is fine :)
     var nextTokens = tokens.slice();
@@ -180,7 +180,8 @@ function updateState(direction, positions, tokens) {
       tokens: nextTokens,
     };
   } else {
-    confirm('You are the noob!!!');
+    confirm('Game Over boy!');
+    console.log("Dead");
     return {
       positions: [initPosition],
       tokens: initTokens,
