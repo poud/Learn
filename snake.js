@@ -17,7 +17,7 @@ var direction = 'L';
 var worldSize = { x: 20, y: 20 };
 var initPosition = { x: parseInt(worldSize.x/2), y: parseInt(worldSize.y/2) }; //_Emil: why do we parseInt here?
 var positions = [initPosition];
-var initTokens = [];
+var initTokens = [{ x: 8, y: 10 }];
 var tokens = initTokens;
 
 function step() {
@@ -192,10 +192,14 @@ function crash(worldSize, positions, nextPositions) {
   var head = nextPositions[0];
   var outsideWorld = head.y < 0 || head.y >= worldSize.y || //_Emil: what is ||? You might need it!
         head.x < 0 || head.x >= worldSize.x;
-  return outsideWorld;
+  return outsideWorld || contains(head, positions);
 }
 
 function addToken() {
+  var newToken = randomPosition(worldSize, positions, tokens);
+  tokens.push(newToken);
+  var timeout = randomInt(400, 1000);
+  setTimeout(addToken, timeout);
 }
 
 //_Emil: this might be useful. Random is 'tilfeldig' in Norwegian ;)
