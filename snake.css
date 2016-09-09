@@ -1,5 +1,40 @@
 body {
+  min-width: 400px;
   background-color: black;
+}
+
+#message {
+  position: absolute;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  width: 300px;
+  left: 50% ;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 2px;
+}
+.message-element {
+  background-color: #fff;
+  color:#525252;
+}
+
+.button {
+  background-color: #fff;
+  cursor: pointer;
+  border: 1px solid #525252;
+  display: flex;
+  justify-content: center;
+  color: #525252;
+  padding: 1em;
+}
+
+.button:hover {
+  background-color: #525252;
+  color: #fff;
 }
 
 #snake {

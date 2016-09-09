@@ -16,21 +16,34 @@ var rootElem = document.getElementById('snake');
 var direction = 'L';
 var worldSize = { x: 50, y: 50 };
 var initPosition = { x: parseInt(worldSize.x/2), y: parseInt(worldSize.y/2) }; //_Emil: why do we parseInt here?
-var positions = [initPosition];
 var initTokens = [{ x: 8, y: 10 }];
+var positions = [initPosition];
 var tokens = initTokens;
+var running = true;
 
 console.log("Starting...")
 
 function step() {
-  var state = updateState(direction, positions, tokens);
-  positions = state.positions;
-  tokens = state.tokens;
-  render(worldSize, positions, tokens, rootElem);
+  if (running) {
+    var state = updateState(direction, positions, tokens);
+    positions = state.positions;
+    tokens = state.tokens;
+    render(worldSize, positions, tokens, rootElem);
+    setTimeout(step, 200);
+  }
+}
+
+function restart() {
+  running = true;
+  positions = [initPosition];
+  tokens = initTokens;
+  step();
+  document.getElementById("message").setAttribute('style', 'display:none;');
+
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-  setInterval(step, 200);
+  setTimeout(step, 200);
   setTimeout(addToken(worldSize, positions, tokens), randomInt(300, 1000));
 });
 
@@ -182,7 +195,9 @@ function updateState(direction, positions, tokens) {
       tokens: nextTokens,
     };
   } else {
-    console.log("Dead");
+    running = false;
+    document.getElementById("message").setAttribute('style', 'display:flex;');
+
     return {
       positions: [initPosition],
       tokens: initTokens,
