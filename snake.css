@@ -2,7 +2,41 @@ body {
   min-width: 400px;
   background-color: black;
 }
+#xp {
+  color: #fff;
+  font-family: sans-serif;
+}
+#lvl {
+  color: #fff;
+  font-family: sans-serif;;
+}
+#tokens {
+  color: #fff;
+  font-family: sans-serif;;
+}
+#shop {
+  font-family: sans-serif;;
+  background-color: green;
 
+}
+#notice {
+  position: absolute;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  left: 50% ;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 2px;
+  color: #fff;
+  font-family: sans-serif;
+  background-color: #525252;
+  opacity: 0.3
+
+}
 #message {
   position: absolute;
   display: none;
@@ -30,6 +64,15 @@ body {
   justify-content: center;
   color: #525252;
   padding: 1em;
+}
+
+.upgrade {
+  color:white;
+  display: flex;
+  padding: 1em;
+  cursor: pointer;
+  position: absolute;
+  border: 1px solid #fff;
 }
 
 .button:hover {

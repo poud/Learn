@@ -20,18 +20,36 @@ var initTokens = [{ x: 8, y: 10 }];
 var positions = [initPosition];
 var tokens = initTokens;
 var running = true;
+var experience = 0;
+var level = 1;
+var totalTokens = 0;
 
 console.log("Starting...")
 
 function step() {
   if (running) {
+    document.getElementById("xp").innerHTML = "Experience: " + experience;
+    document.getElementById("lvl").innerHTML = "Level: " + level;
+    document.getElementById("tokens").innerHTML = "Tokens: " + totalTokens;
     var state = updateState(direction, positions, tokens);
     positions = state.positions;
     tokens = state.tokens;
     render(worldSize, positions, tokens, rootElem);
     setTimeout(step, 200);
+
+    if (experience == 2) {
+      experience = 0;
+      level = level + 1;
+      document.getElementById("notice").innerHTML = "You reached level " + level;
+      setTimeout(clearNotice,3000)
+    }
   }
 }
+
+function clearNotice() {
+  document.getElementById("notice").innerHTML = "";
+}
+
 
 function restart() {
   running = true;
@@ -44,7 +62,7 @@ function restart() {
 
 document.addEventListener('DOMContentLoaded', function() {
   setTimeout(step, 200);
-  setTimeout(addToken(worldSize, positions, tokens), randomInt(300, 1000));
+  setTimeout(addToken(worldSize, positions, tokens), randomInt(1000, 3000));
 });
 
 /* VIEW */
@@ -181,11 +199,14 @@ function updateState(direction, positions, tokens) {
   var nextPositions = [{ x: nextX, y: nextY }].concat(tailPositions);
 
   if (!crash(worldSize, positions, nextPositions)) {
+
     //_Emil: can you guess why I do a slice here? If not, send me a mail saying: 'no I do not understand' (which is fine :)
     var nextTokens = tokens.slice();
     for (var tokenIndex = 0; tokenIndex < tokens.length; tokenIndex++) {
       var token = tokens[tokenIndex];
       if (token.x === position.x && token.y === position.y) {
+        experience = experience + 1;
+        totalTokens = totalTokens +1;
         nextTokens.splice(tokenIndex, 1); //_Emil: what is splice?
         nextPositions.push({ x: token.x, y: token.y });
       }
