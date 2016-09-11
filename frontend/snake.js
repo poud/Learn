@@ -26,6 +26,12 @@ var totalTokens = 0;
 
 console.log("Starting...")
 
+
+function loadUser() {
+  //document.getElementById("user").innerHTML = "Username: " + username;
+
+}
+
 function step() {
   if (running) {
     document.getElementById("xp").innerHTML = "Experience: " + experience;
@@ -37,7 +43,7 @@ function step() {
     render(worldSize, positions, tokens, rootElem);
     setTimeout(step, 200);
 
-    if (experience == 2) {
+    if (experience == level*2) {
       experience = 0;
       level = level + 1;
       document.getElementById("notice").innerHTML = "You reached level " + level;
@@ -61,6 +67,7 @@ function restart() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+  loadUser();
   setTimeout(step, 200);
   setTimeout(addToken(worldSize, positions, tokens), randomInt(1000, 3000));
 });

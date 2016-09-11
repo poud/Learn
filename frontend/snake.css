@@ -2,6 +2,10 @@ body {
   min-width: 400px;
   background-color: black;
 }
+#username {
+  color: #fff;
+  font-family: sans-serif;
+}
 #xp {
   color: #fff;
   font-family: sans-serif;

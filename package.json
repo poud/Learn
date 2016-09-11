@@ -1,0 +1,28 @@
+{
+  "name": "sneka",
+  "version": "1.0.0",
+  "description": "@poud asked his uncle, @freekh, after a dinner once if he could teach him how to program. \r Thus this repo was created after @freekh got tired of mailing code (and in the hope that @poud would appreciate version control)...",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./node_modules/nodemon/bin/nodemon backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/poud/Learn.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/poud/Learn/issues"
+  },
+  "homepage": "https://github.com/poud/Learn#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "cookie-session": "^2.0.0-alpha.1",
+    "express": "^4.14.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.10.2"
+  }
+}
