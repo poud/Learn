@@ -28,8 +28,13 @@ console.log("Starting...")
 
 
 function loadUser() {
-  //document.getElementById("user").innerHTML = "Username: " + username;
-
+  var req = new XMLHttpRequest();
+  req.open("GET", "/api/user", true);
+  req.onload = function() {
+    var user = JSON.parse(req.responseText);
+    document.getElementById("username").innerHTML = "Username: " + user.username;
+  };
+  req.send();
 }
 
 function step() {

@@ -34,6 +34,11 @@ app.get('/logout', urlencoded, function (req, res) {
   res.redirect("/login");
 });
 
+app.get('/api/user', urlencoded, function (req, res) {
+  var username = req.session.username;
+  res.json({ username: username });
+});
+
 app.get('/snake.html', function (req, res) {
   if (req.session && req.session.username) {
     var username = req.session.username;
