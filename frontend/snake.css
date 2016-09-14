@@ -1,27 +1,11 @@
+
 body {
   min-width: 400px;
-  background-color: black;
+  background-color: #37474F;
 }
-#username {
+.menu {
   color: #fff;
   font-family: sans-serif;
-}
-#xp {
-  color: #fff;
-  font-family: sans-serif;
-}
-#lvl {
-  color: #fff;
-  font-family: sans-serif;;
-}
-#tokens {
-  color: #fff;
-  font-family: sans-serif;;
-}
-#shop {
-  font-family: sans-serif;;
-  background-color: green;
-
 }
 #notice {
   position: absolute;
@@ -93,14 +77,14 @@ body {
 }
 
 .Board {
-  border-collapse: collapse;
   border-spacing: 0px;
+  border-radius: 1px;
+  border-style: solid;
 }
 
 .Board-Cell {
   width: 10px;
   height: 10px;
-  background-color: white;
 }
 
 .Board-Snake-Tail {
@@ -113,4 +97,30 @@ body {
 
 .Board-Token {
   background-color: orange;
+}
+
+#logout {
+  text-decoration: none;
+  color: white;
+  font-family: sans-serif;
+  position: absolute;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  right: 1% ;
+  top: 1%;
+}
+
+#bar {
+    position: absolute;
+    width: 50%;
+    height: 30px;
+    background-color: grey;
+}
+#xpBar {
+    position: absolute;
+    width: 0%;
+    height: 30px;
+    background-color: red;
 }

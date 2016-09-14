@@ -1,5 +1,83 @@
+<head>
+<style>
+body {
+  background-color: #455A64;
+}
+input[type=text]{
+  font-family: sans-serif;
+  background-color:#009688;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  width: 300px;
+  left: 50% ;
+  top: 45%;
+  transform: translate(-50%, -50%);
+  border: none;
+  color: white;
+}
+input[type=password]{
+  font-family: sans-serif;
+  background-color:#009688;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  width: 300px;
+  left: 50% ;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: none;
+  color: white;
+}
+input[type=submit]{
+  font-family: sans-serif;
+  background-color: #37474F;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  width: 300px;
+  left: 50% ;
+  top: 55%;
+  transform: translate(-50%, -50%);
+  border: none;
+  color: white;
+}
+.p {
+  font-family: sans-serif;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  width: 300px;
+  left: 50% ;
+  transform: translate(-50%, -50%);
+  border: none;
+  color: white;
+}
+#password {
+    top: 46%;
+}
+#username {
+    top: 41%;
+}
+
+</style>
+</head>
 <form method="POST" action="/login">
-  <input type="text" name="username" placeholder="someuser">
-  <input type="password" name="password" placeholder="somepassword">
+  <p id="username" class="p">Enter you username</p>
+  <input type="text" name="username">
+  <p id="password" class="p">Enter you password</p>
+  <input type="password" name="password">
   <input type="submit">
 </form>

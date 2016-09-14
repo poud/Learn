@@ -10,7 +10,7 @@ app.use(cookieSession({
 }));
 
 var users = {
-  "pokemil": "balle",
+  "emil": "emilemil",
   "freekh": "kulfyr",
 };
 

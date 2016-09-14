@@ -23,6 +23,7 @@ var running = true;
 var experience = 0;
 var level = 1;
 var totalTokens = 0;
+var maxxp = level * 10;
 
 console.log("Starting...")
 
@@ -48,7 +49,7 @@ function step() {
     render(worldSize, positions, tokens, rootElem);
     setTimeout(step, 200);
 
-    if (experience == level*2) {
+    if (experience == maxxp) {
       experience = 0;
       level = level + 1;
       document.getElementById("notice").innerHTML = "You reached level " + level;
@@ -60,6 +61,15 @@ function step() {
 function clearNotice() {
   document.getElementById("notice").innerHTML = "";
 }
+
+function bar() {
+  var elem = document.getElementById("xpBar");
+  var percent = experience/maxxp*100;
+  if (percent>=100) {
+  } else {
+    elem.style.width = percent + '%';
+    }
+  }
 
 
 function restart() {
@@ -219,6 +229,7 @@ function updateState(direction, positions, tokens) {
       if (token.x === position.x && token.y === position.y) {
         experience = experience + 1;
         totalTokens = totalTokens +1;
+        bar();
         nextTokens.splice(tokenIndex, 1); //_Emil: what is splice?
         nextPositions.push({ x: token.x, y: token.y });
       }
