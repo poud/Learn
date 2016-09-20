@@ -239,6 +239,17 @@ function updateState(direction, positions, tokens) {
       tokens: nextTokens,
     };
   } else {
+
+    function sendData() {
+      var req = new XMLHttpRequest();
+      req.open("POST", "/api/user", true);
+      req.onload = function() {
+        var user = JSON.parse(req.responseText);
+        document.getElementById("username").innerHTML = "Username: " + user.username;
+      };
+      req.send(data);
+    }
+
     running = false;
     document.getElementById("message").setAttribute('style', 'display:flex;');
 
