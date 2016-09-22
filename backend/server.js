@@ -16,7 +16,7 @@ var users = {
 
 var leaderboard = {
   "emil": 68,
-  "freekh" 1,
+  "freekh": 1, //ser ut som det var en feil her (og da snakker jeg ikke bare om tallet!! det bør jo være mye høyere 69 kanskje?)
 }
 
 app.get('/login', function (req, res) {
@@ -44,8 +44,9 @@ app.get('/api/user', urlencoded, function (req, res) {
   res.json({ username: username });
 });
 
-app.get('/api/tokenscore', urlencoded, function (req, res) {
-  var score = req.experience;
+app.post('/api/tokenscore', urlencoded, function (req, res) {
+  console.log(req.body); //se her :)
+  var score = req.body.score;
   res.json({ leaderboard: score });
 });
 

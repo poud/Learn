@@ -243,10 +243,13 @@ function updateState(direction, positions, tokens) {
     function sendData() {
       var req = new XMLHttpRequest();
       req.open("POST", "/api/tokenscore", true);
+      req.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); //dette glemte jeg å si til deg! :(
       req.onload = function() {
-        experience;
+        var text = req.responseText; //vi får text tilbake
+        var json = JSON.parse(text); //som vi parser
+        console.log(json, json.leaderboard); // og som vi kan bruke
       };
-      req.send(JSON(data));
+      req.send("score=1&noob=du"); //se her: score=1 (du må fikse litt så det blir det faktiske tallet)
     }
     sendData();
     running = false;
