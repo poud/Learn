@@ -14,6 +14,11 @@ var users = {
   "freekh": "kulfyr",
 };
 
+var leaderboard = {
+  "emil": 68,
+  "freekh" 1,
+}
+
 app.get('/login', function (req, res) {
   res.sendFile(path.resolve(__dirname +'/../frontend/login.html'));
 });
@@ -38,6 +43,12 @@ app.get('/api/user', urlencoded, function (req, res) {
   var username = req.session.username;
   res.json({ username: username });
 });
+
+app.get('/api/tokenscore', urlencoded, function (req, res) {
+  var score = req.experience;
+  res.json({ leaderboard: score });
+});
+
 
 app.get('/snake.html', function (req, res) {
   if (req.session && req.session.username) {

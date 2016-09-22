@@ -23,7 +23,7 @@ var running = true;
 var experience = 0;
 var level = 1;
 var totalTokens = 0;
-var maxxp = level * 10;
+var maxxp = level * 100;
 
 console.log("Starting...")
 
@@ -242,14 +242,13 @@ function updateState(direction, positions, tokens) {
 
     function sendData() {
       var req = new XMLHttpRequest();
-      req.open("POST", "/api/user", true);
+      req.open("POST", "/api/tokenscore", true);
       req.onload = function() {
-        var user = JSON.parse(req.responseText);
-        document.getElementById("username").innerHTML = "Username: " + user.username;
+        experience;
       };
-      req.send(data);
+      req.send(JSON(data));
     }
-
+    sendData();
     running = false;
     document.getElementById("message").setAttribute('style', 'display:flex;');
 
