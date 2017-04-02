@@ -4,12 +4,14 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "cookie-parser": "^1.4.3",
     "express": "^4.15.0",
-    "express-ws": "^3.0.0"
+    "express-ws": "^3.0.0",
+    "uuid": "^3.0.1"
   },
   "devDependencies": {},
   "scripts": {
-    "start":"nodemon -e html -e js -w . -w server server/index.js",
+    "start": "nodemon -e html -e js -w . -w server server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

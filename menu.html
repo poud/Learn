@@ -3,12 +3,16 @@
 <body>
 <button onclick="findGame()">Play</button>
 <script>
+
 function findGame() {
   var ws = new WebSocket("ws://localhost:4000/find");
   ws.onopen = function() {
    console.log('ready');
+   ws.send('ready');
   };
   ws.onmessage = function (ev) {
+    var id = ev.data;
+    window.location = '/' + id;
   };
 
   ws.onclose = function()  {
