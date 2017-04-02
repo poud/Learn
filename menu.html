@@ -1,0 +1,20 @@
+<DOCTYPE html>
+<html>
+<body>
+<button onclick="findGame()">Play</button>
+<script>
+function findGame() {
+  var ws = new WebSocket("ws://localhost:4000/find");
+  ws.onopen = function() {
+   console.log('ready');
+  };
+  ws.onmessage = function (ev) {
+  };
+
+  ws.onclose = function()  {
+   console.log('connection closed')
+  };
+}
+</script>
+</body>
+</html>

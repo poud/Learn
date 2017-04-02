@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>hello phaser!</title>
+        <script src="//cdn.jsdelivr.net/phaser/2.5.0/phaser.min.js"></script>
+    </head>
+    <body>
+
+    <script type="text/javascript">
+
+    window.onload = function() {
+
+        //  Note that this html file is set to pull down Phaser 2.5.0 from the JS Delivr CDN.
+        //  Although it will work fine with this tutorial, it's almost certainly not the most current version.
+        //  Be sure to replace it with an updated version before you start experimenting with adding your own code.
+
+        var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update});
+        function preload () {
+
+             game.load.image('sky', 'assets/sky.png');
+             game.load.image('ground', 'assets/platform.png');
+             game.load.image('star', 'assets/star.png');
+             game.load.spritesheet('dude', 'assets/dude.png', 32, 48);
+             game.load.spritesheet('dude2', 'assets/dude2.png', 32, 48);
+        }
+        var cursors;
+        var wasd;
+        var hitPlatform = game.physics.arcade.collide(player2, platforms);
+        var hitPlatform2 = game.physics.arcade.collide(player, platforms);
+        var hitPlatform3 = game.physics.arcade.collide(player2, player);
+function updatePlayer(player2,wasd){
+   hitPlatform = game.physics.arcade.collide(player2, platforms);
+  //  Reset the players velocity (movement)
+ player2.body.velocity.x = 0;
+
+ if (wasd.left.isDown)
+ {
+     //  Move to the left
+     player2.body.velocity.x = -150;
+
+     player2.animations.play('left');
+ }
+ else if (wasd.right.isDown)
+ {
+     //  Move to the right
+     player2.body.velocity.x = 150;
+
+     player2.animations.play('right');
+ }
+ else
+ {
+     //  Stand still
+     player2.animations.stop();
+
+     player2.frame = 4;
+ }
+
+ //  Allow the player to jump if they are touching the ground.
+ if (wasd.up.isDown && player2.body.touching.down && hitPlatform)
+ {
+     player2.body.velocity.y = -350;
+ }
+}
+function update () {
+ hitPlatform3 = game.physics.arcade.collide(player2, player);
+    updatePlayer(player, cursors);
+    updatePlayer(player2, wasd);
+}
+        var platforms;
+        function initPlayer(player){
+          //  We need to enable physics on the player
+          game.physics.arcade.enable(player);
+          //  Player physics properties. Give the little guy a slight bounce.
+          player.body.bounce.y = 0.2;
+          player.body.gravity.y = 300;
+          player.body.collideWorldBounds = true;
+
+
+          //  Our two animations, walking left and right.
+          head.animations.add('left', 2, true);
+          head.animations.add('right', 3, true);
+        }
+function create() {
+
+    //  We're going to be using physics, so enable the Arcade Physics system
+    game.physics.startSystem(Phaser.Physics.ARCADE);
+
+    //  A simple background for our game
+    game.add.sprite(0, 0, 'sky');
+
+    //  The platforms group contains the ground and the 2 ledges we can jump on
+    platforms = game.add.group();
+
+    //  We will enable physics for any object that is created in this group
+    platforms.enableBody = true;
+
+    // Here we create the ground.
+    var ground = platforms.create(0, game.world.height - 64, 'ground');
+
+    //  Scale it to fit the width of the game (the original sprite is 400x32 in size)
+   ground.scale.setTo(2, 2);
+
+    //  This stops it from falling away when you jump on it
+    ground.body.immovable = true;
+
+    //  Now let's create two ledges
+    var ledge = platforms.create(400, 400, 'ground');
+
+    ledge.body.immovable = true;
+
+    ledge = platforms.create(-150, 250, 'ground');
+
+    ledge.body.immovable = true;
+    // The player and its settings
+    player = game.add.sprite(32, game.world.height - 150, 'dude');
+    player2 = game.add.sprite(64, game.world.height - 250, 'dude2');
+    initPlayer(player);
+    initPlayer(player2);
+
+    cursors = game.input.keyboard.createCursorKeys();
+    wasd = game.input.keyboard.addKeys( { 'up': Phaser.KeyCode.W, 'down': Phaser.KeyCode.S, 'left': Phaser.KeyCode.A, 'right': Phaser.KeyCode.D } );
+}
+    };
+
+    </script>
+
+    </body>
+</html>

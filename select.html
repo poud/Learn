@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>hello phaser!</title>
+        <script src="//cdn.jsdelivr.net/phaser/2.5.0/phaser.min.js"></script>
+    </head>
+    <body>
+
+    <script type="text/javascript">
+
+    window.onload = function() {
+
+        //  Note that this html file is set to pull down Phaser 2.5.0 from the JS Delivr CDN.
+        //  Although it will work fine with this tutorial, it's almost certainly not the most current version.
+        //  Be sure to replace it with an updated version before you start experimenting with adding your own code.
+
+
+        var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload: preload, create: create });
+
+        function preload() {
+
+            game.load.spritesheet('mummy', 'assets/guy.png', 37, 45);
+            game.load.spritesheet('monster', 'assets/what.png', 39, 40);
+
+        }
+
+        var sprite;
+
+        function create() {
+
+            sprite = game.add.sprite(300, 200, 'monster');
+
+            sprite.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]);
+            sprite.animations.play('walk', 20, true);
+            sprite.scale.set(4);
+            sprite.smoothed = false;
+
+            game.input.onDown.add(changeTexture, this);
+
+        }
+
+        function changeTexture() {
+
+            if (sprite.key === 'monster')
+            {
+                sprite.loadTexture('mummy', 0, false);
+            }
+            else
+            {
+                sprite.loadTexture('monster', 0, false);
+            }
+          }
+        }
+
+            // sprite.smoothed = false;
+
+        </script>
+
+        </body>
+    </html>

@@ -1,0 +1,127 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>hello phaser!</title>
+        <script src="//cdn.jsdelivr.net/phaser/2.5.0/phaser.min.js"></script>
+    </head>
+    <body>
+
+    <script type="text/javascript">
+
+    window.onload = function() {
+        function isPlayer(num) {
+            return location.pathname === "/" + num;
+        }
+        var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update: update});
+        var head;
+        var head2;
+        var food;
+        var cursors;
+        function preload() {
+            game.stage.disableVisibilityChange = true;
+            game.load.spritesheet('head', 'assets/head.png', 50, 50, 4);
+            game.load.image('background', 'assets/bg.png');
+            game.load.image('food', 'assets/star.png');
+
+        }
+
+        function create() {
+            cursors = game.input.keyboard.createCursorKeys();
+            game.add.sprite(0, 0, 'background');
+            game.physics.startSystem(Phaser.Physics.P2JS);
+            game.physics.p2.defaultRestitution = 0.8;
+
+            head = game.add.sprite(50, 50, 'head');
+            head2 = game.add.sprite(750, 550, 'head');
+            food = game.add.sprite(100, 100, 'food');
+
+            game.physics.p2.enable(food);
+            game.physics.p2.enable(head);
+            game.physics.p2.enable(head2);
+
+            head.body.collideWorldBounds = true;
+            head.body.setZeroDamping();
+            head.body.fixedRotation = true;
+            head.body.onBeginContact.add(snakeHit, this);
+            head.body.velocity.x = 100;
+
+            head2.body.collideWorldBounds = true;
+            head2.body.setZeroDamping();
+            head2.body.fixedRotation = true;
+            head2.body.onBeginContact.add(snakeHit, this);
+            head2.body.velocity.x = 100;
+
+        }
+        function snakeHit(body, bodyB, shapeA, shapeB, equation) {
+          if(body && body.sprite && body.sprite.key === "food"){
+            body.sprite.destroy();
+            body.destroy();
+          }
+        }
+        var ws = new WebSocket("ws://localhost:4000/positions" + location.pathname);
+        ws.onopen = function()
+        {
+         console.log('ready');
+        };
+        var otherCoords;
+        ws.onmessage = function (ev)
+        {
+         otherCoords = JSON.parse(ev.data);
+        };
+
+        ws.onclose = function()
+        {
+         console.log('connection closed')
+        };
+
+          function update() {
+            var player;
+            var otherPlayer;
+            if(isPlayer(1)){
+              otherPlayer = head2;
+              player = head;
+            } else if (isPlayer(2)){
+              otherPlayer = head;
+              player = head2;
+            } else {
+              console.log("Faakkkkk");
+            }
+            if(otherCoords){
+              otherPlayer.body.x = otherCoords.x;
+              otherPlayer.body.y = otherCoords.y
+            }
+            ws.send(JSON.stringify({ x: player.body.x, y: player.body.y }));
+            // head.body.setZeroVelocity();
+
+            //  var foodCollide = game.physics.arcade.collide(head, food);
+            //  console.log(foodCollide);
+            //  console.log(cursors);
+            if(cursors.right.isDown){
+                //head.body.moveRight(100);
+                player.body.velocity.x = 100;
+                player.body.velocity.y = 0;
+            }
+            if(cursors.left.isDown){
+              //  head.body.moveLeft(100);
+                player.body.velocity.x = -100;
+                player.body.velocity.y = 0;
+            }
+            if(cursors.down.isDown){
+                //head.body.moveDown(100);
+                player.body.velocity.y = 100;
+                player.body.velocity.x = 0;
+            }
+            if(cursors.up.isDown){
+                //head.body.moveUp(100);
+                player.body.velocity.y = -100;
+                player.body.velocity.x = 0;
+            }
+
+        }
+      }
+
+
+    </script>
+    </body>
+</html>
